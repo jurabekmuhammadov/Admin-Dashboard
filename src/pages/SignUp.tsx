@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 // import { Formik, Form, Field, ErrorMessage } from 'formik';
 // import * as Yup from 'yup';
 // import { useAuthStore } from '../app/auth/useAuthStore';
@@ -83,9 +85,13 @@ const SignUpFormSchema = Yup.object().shape({
     email: Yup.string().email('Invalid email').required('Required'),
     full_name: Yup.string().required('Required'),
     password: Yup.string().required('Required').min(6, 'Password must be at least 6 characters'),
-    confirmPassword: Yup.string().required('Required').oneOf([Yup.ref('password'), null], 'Passwords must match'),
+    confirmPassword: Yup.string().required('Required').oneOf([Yup.ref('password')], 'Passwords must match'),
     phone_number: Yup.string().matches(/^\+[0-9]{12}$/, 'Invalid phone number').required('Required')
 });
+
+const handleError = (error: any) => {
+    console.error('An error occurred:', error);
+};
 
 const SignUp = () => {
     const signUp = useAuthStore(state => state.signUp);
@@ -109,7 +115,7 @@ const SignUp = () => {
                         resetForm();
                         navigate("/verify");
                     } catch (error) {
-                        console.log(error.message);
+                        handleError(error);
                     }
                 }}
             >

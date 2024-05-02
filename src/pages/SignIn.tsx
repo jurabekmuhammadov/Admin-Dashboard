@@ -69,6 +69,10 @@ const SignInFormSchema = Yup.object().shape({
     password: Yup.string().required('Required').min(6, 'Password must be at least 6 characters'),
 });
 
+const handleError = (error: any) => {
+    console.error('An error occurred:', error);
+};
+
 const SignIn = () => {
     const signIn = useAuthStore(state => state.signIn);
     return (
@@ -85,7 +89,7 @@ const SignIn = () => {
                         await signIn(values);
                         resetForm();
                     } catch (error) {
-                        console.log(error.message);
+                        handleError(error);
                     }
                 }}
             >

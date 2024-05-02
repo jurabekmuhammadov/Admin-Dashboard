@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 // import { create } from "zustand";
 // import { produce } from "immer";
 // import axios from "axios";
