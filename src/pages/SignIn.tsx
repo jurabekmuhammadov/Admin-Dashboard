@@ -1,4 +1,4 @@
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, Field, ErrorMessage, FormikHelpers } from 'formik';
 import * as Yup from 'yup';
 import { useAuthStore } from '../app/auth/useAuthStore';
 import { Link, useNavigate } from 'react-router-dom';
@@ -10,15 +10,24 @@ const SignInFormSchema = Yup.object().shape({
     password: Yup.string().required('Required').min(6, 'Password must be at least 6 characters'),
 });
 
-const handleError = (error: any) => {
-    console.error('An error occurred:', error.message);
+interface FormValues {
+    email: string;
+    password: string;
+}
+
+const handleError = (error: unknown) => {
+    if (error instanceof Error) {
+        console.error('An error occurred:', error.message);
+    } else {
+        console.error('An unknown error occurred:', error);
+    }
 };
 
 const SignIn = () => {
     const signIn = useAuthStore(state => state.signIn);
     const navigate = useNavigate();
 
-    const handleSubmit = async (values, { resetForm }) => {
+    const handleSubmit = async (values: FormValues, { resetForm }: FormikHelpers<FormValues>) => {
         try {
             await signIn(values);
             resetForm();

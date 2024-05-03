@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, Field, ErrorMessage, FormikHelpers } from 'formik';
 import * as Yup from 'yup';
 import { useAuthStore } from '../app/auth/useAuthStore';
 import { Link, useNavigate } from 'react-router-dom';
@@ -8,6 +8,14 @@ import { Link, useNavigate } from 'react-router-dom';
 
 import { Typography, Grid, Paper, Avatar, Box } from '@mui/material';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+
+interface FormValues {
+    email: string;
+    password: string;
+    full_name: string,
+    phone_number: string,
+    confirm_password: string,
+}
 
 const SignUpFormSchema = Yup.object().shape({
     email: Yup.string().email('Invalid email').required('Required'),
@@ -24,9 +32,9 @@ const handleError = (error: any) => {
 const SignUp = () => {
     const signUp = useAuthStore(state => state.signUp);
     const navigate = useNavigate();
-    const handleSubmit = async (values, { resetForm }) => {
+    const handleSubmit = async (values: FormValues, { resetForm }: FormikHelpers<FormValues>) => {
         try {
-            const { confirmPassword, ...signUpData } = values;
+            const { confirm_password, ...signUpData } = values;
             await signUp(signUpData);
             resetForm();
             navigate("/verify");

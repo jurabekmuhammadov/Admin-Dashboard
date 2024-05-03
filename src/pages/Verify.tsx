@@ -1,12 +1,16 @@
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, Field, ErrorMessage, FormikHelpers } from 'formik';
 import * as Yup from 'yup';
 import { useAuthStore } from '../app/auth/useAuthStore';
 import { Box, Typography } from '@mui/material';
 
+interface FormValues {
+    code: string,
+}
+
 const Verify = () => {
     const verify = useAuthStore(state => state.verify);
 
-    const handleSubmit = (values, { resetForm }) => {
+    const handleSubmit = (values: FormValues, { resetForm }: FormikHelpers<FormValues>) => {
         const email = localStorage.getItem("email");
         if (email) {
             const verifyData = { ...values, email };
