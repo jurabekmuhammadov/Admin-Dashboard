@@ -3,7 +3,7 @@ import { create } from "zustand";
 import { produce } from "immer";
 import axios, { AxiosResponse } from "axios";
 import { toast } from "react-toastify";
-interface AuthState {
+interface AuthType {
     email: string;
     full_name: string;
     phone_number: string;
@@ -66,7 +66,7 @@ const errorSignIn = (message: string) => toast.error(message, {
     theme: "light",
 })
 
-const AuthStore = create<AuthState>((set) => (
+const AuthStore = create<AuthType>((set) => (
     {
         email: "",
         full_name: "",
@@ -86,7 +86,7 @@ const AuthStore = create<AuthState>((set) => (
                 );
                 const data: any = await res.data;
                 set(
-                    produce((state: AuthState) => {
+                    produce((state: AuthType) => {
                         state.email = data.email;
                         state.full_name = data.full_name;
                         state.password = data.password;
@@ -98,7 +98,6 @@ const AuthStore = create<AuthState>((set) => (
             }
             catch (error) {
                 errorSignUp((error as any).response?.data?.error.toUpperCase());
-                // errorSignUp((error as AxiosError<MyResponseType>).response?.data?.error?.toUpperCase());
             }
         },
         signIn: async (user: { email: string; password: string }) => {
@@ -109,7 +108,7 @@ const AuthStore = create<AuthState>((set) => (
                 );
                 const data: any = await res.data;
                 set(
-                    produce((state: AuthState) => {
+                    produce((state: AuthType) => {
                         state.email = data.email;
                         state.password = data.password;
                     })
@@ -120,6 +119,7 @@ const AuthStore = create<AuthState>((set) => (
                 location.assign("/dashboard");
                 successSignIn("Successfully signed in");
             } catch (error) {
+                console.log(error);
                 errorSignIn((error as any).response?.data?.message.toUpperCase());
             }
         },
