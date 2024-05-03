@@ -17,8 +17,6 @@ interface AuthType {
     signIn: (user: { email: string; password: string }) => Promise<void>;
     verify: (verifyValue: { code: string; email: string }) => Promise<void>;
     delete: (id: string) => Promise<void>;
-    error?: string;
-    message?: string;
 }
 
 const handleError = (error: any) => {
