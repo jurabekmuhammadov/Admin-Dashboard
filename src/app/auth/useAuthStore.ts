@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { create } from "zustand";
 import { produce } from "immer";
-import axios, { AxiosError, AxiosResponse } from "axios";
+import axios, { AxiosResponse } from "axios";
 import { toast } from "react-toastify";
 interface AuthState {
     email: string;
@@ -17,6 +17,8 @@ interface AuthState {
     signIn: (user: { email: string; password: string }) => Promise<void>;
     verify: (verifyValue: { code: string; email: string }) => Promise<void>;
     delete: (id: string) => Promise<void>;
+    error?: string;
+    message?: string;
 }
 
 const handleError = (error: any) => {
@@ -93,8 +95,10 @@ const AuthStore = create<AuthState>((set) => (
                 );
                 localStorage.setItem("email", user.email);
                 location.assign("/verify");
-            } catch (error) {
-                errorSignUp((error as AxiosError).response?.data?.error.toUpperCase());
+            }
+            catch (error) {
+                errorSignUp((error as any).response?.data?.error.toUpperCase());
+                // errorSignUp((error as AxiosError<MyResponseType>).response?.data?.error?.toUpperCase());
             }
         },
         signIn: async (user: { email: string; password: string }) => {
@@ -116,7 +120,7 @@ const AuthStore = create<AuthState>((set) => (
                 location.assign("/dashboard");
                 successSignIn("Successfully signed in");
             } catch (error) {
-                errorSignIn((error as AxiosError).response?.data?.message.toUpperCase());
+                errorSignIn((error as any).response?.data?.message.toUpperCase());
             }
         },
         verify: async (verifyValue: { code: string; email: string }) => {
@@ -129,7 +133,7 @@ const AuthStore = create<AuthState>((set) => (
                 console.log(data);
                 successSignUp("Successfully signed up");
             } catch (error) {
-                errorSignUp((error as AxiosError).response?.data?.error.toUpperCase());
+                errorSignUp((error as any).response?.data?.error.toUpperCase());
             }
         },
         delete: async (id: string) => {
@@ -140,7 +144,7 @@ const AuthStore = create<AuthState>((set) => (
                 const data: any = await res.data;
                 console.log(data);
             } catch (error) {
-                handleError(error as AxiosError);
+                handleError(error as any);
             }
         },
     }));
