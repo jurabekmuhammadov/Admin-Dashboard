@@ -1,7 +1,7 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { useAuthStore } from '../app/auth/useAuthStore';
-import { Box, Grid, Paper, Typography } from '@mui/material';
+import { Box, Typography } from '@mui/material';
 
 const Verify = () => {
     const verify = useAuthStore(state => state.verify);
