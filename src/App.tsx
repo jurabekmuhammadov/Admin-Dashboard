@@ -14,19 +14,7 @@ import VerifyRoutes from "./routes/verifyRoutes";
 
 const App = () => {
   return (
-    <div>
-      <ToastContainer
-        position="top-center"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
+    <>
       <BrowserRouter>
         <Routes>
           <Route element={<PrivateRoutes />}>
@@ -42,7 +30,19 @@ const App = () => {
           </Route>
         </Routes>
       </BrowserRouter>
-    </div>
+      <ToastContainer
+        position="top-center"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
+    </>
   );
 };
 
