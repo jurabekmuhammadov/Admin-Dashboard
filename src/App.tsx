@@ -47,3 +47,5 @@ const App = () => {
 };
 
 export default App;
+
+// Object { id: "28cafb3c-8870-4a6d-b568-91477ba01cd0", full_name: "Jurabek", email: "jorabekmuhammadov7@gmail.com", phone_number: "+998990990753", created_at: "2024-05-03 18:42:56", updated_at: "2024-05-03 13:42:56", access_token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTQ3OTUwNTgsImlhdCI6MTcxNDc1MTg1OCwicm9sZSI6ImFkbWluIiwic3ViIjoiMjhjYWZiM2MtODg3MC00YTZkLWI1NjgtOTE0NzdiYTAxY2QwIn0.sduP0IS8YjdQU_4CimFgFfjlAjn-HNH3FEIqkxBnwzc", refresh_token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTUwMTEwNTgsImlhdCI6MTcxNDc1MTg1OCwicm9sZSI6ImFkbWluIiwic3ViIjoiMjhjYWZiM2MtODg3MC00YTZkLWI1NjgtOTE0NzdiYTAxY2QwIn0.pbomwQjgpxM7jSUqAJehNOMmOd_dnOlOZ2MyWZWjyxw" }
