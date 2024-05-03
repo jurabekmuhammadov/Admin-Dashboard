@@ -52,6 +52,8 @@ const AuthStore = create<AuthState>((set) => ({
         }
     },
     signIn: async (user) => {
+        console.log(user);
+
         try {
             const res = await axios.post(
                 "https://app.olimjanov.uz/v1/auth/login",
@@ -66,10 +68,8 @@ const AuthStore = create<AuthState>((set) => ({
             );
             localStorage.setItem("email", data.email);
             localStorage.setItem("access_token", data.access_token);
-            localStorage.setItem("isAuthenticated", "true");
         } catch (error) {
             handleError(error);
-            localStorage.setItem("isAuthenticated", "false");
         }
     },
     verify: async (verifyValue) => {

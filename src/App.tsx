@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import SignUp from "./pages/SignUp";
 import Verify from "./pages/Verify";
 import SignIn from "./pages/SignIn";
+import Dashboard from "./pages/Dashboard";
 // import Dashboard from "./pages/Dashboard";
 // import PrivateRoute from "./components/PrivateRoute";
 
@@ -17,6 +18,7 @@ const App = () => {
           <Route path="/" element={<SignUp />} />
           <Route path="/verify" element={<Verify />} />
           <Route path="/sign-in" element={<SignIn />} />
+          <Route path="/dashboard" element={<Dashboard/>}/>
           {/* <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} /> */}
         </Routes>
       </BrowserRouter>
