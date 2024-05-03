@@ -1,7 +1,7 @@
 import { Formik, Form, Field, ErrorMessage, FormikHelpers } from 'formik';
 import * as Yup from 'yup';
 import { useAuthStore } from '../app/auth/useAuthStore';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Typography, Grid, Paper, Avatar, Box } from '@mui/material';
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 
@@ -25,13 +25,11 @@ const handleError = (error: unknown) => {
 
 const SignIn = () => {
     const signIn = useAuthStore(state => state.signIn);
-    const navigate = useNavigate();
 
     const handleSubmit = async (values: FormValues, { resetForm }: FormikHelpers<FormValues>) => {
         try {
             await signIn(values);
             resetForm();
-            navigate("/dashboard")
         } catch (error) {
             handleError(error);
         }
@@ -77,12 +75,12 @@ const SignIn = () => {
                             <Form className='mt-5 flex flex-col gap-3 w-3/5 max-sm:w-full max-2xl:w-full'>
                                 <div className='flex flex-col gap-1'>
                                     <label className='text-lg'>Email <span className='text-red-500'>*</span></label>
-                                    <Field type="email" name="email" autoComplete="off" className="bg-slate-200 p-3 rounded-md" />
+                                    <Field type="email" name="email" autoComplete="off" className="bg-slate-200 p-3 rounded-md" placeholder="you@example.com" />
                                     <ErrorMessage name="email" component="div" className="error text-red-500 font-semibold" />
                                 </div>
                                 <div className='flex flex-col gap-1'>
                                     <label className='text-lg'>Password <span className='text-red-500'>*</span></label>
-                                    <Field type="password" name="password" autoComplete="current-password" className="bg-slate-200 p-3 rounded-md" />
+                                    <Field type="password" name="password" autoComplete="current-password" className="bg-slate-200 p-3 rounded-md" placeholder="password" />
                                     <ErrorMessage name="password" component="div" className="error text-red-500 font-semibold" />
                                 </div>
                                 <Link to={"/"} className='underline text-blue-700'>Don't have an account?</Link>

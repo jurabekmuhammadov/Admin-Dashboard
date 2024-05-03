@@ -8,6 +8,7 @@ interface FormValues {
 }
 
 const Verify = () => {
+
     const verify = useAuthStore(state => state.verify);
 
     const handleSubmit = (values: FormValues, { resetForm }: FormikHelpers<FormValues>) => {
