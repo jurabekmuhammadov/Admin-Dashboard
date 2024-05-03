@@ -116,6 +116,7 @@ const AuthStore = create<AuthType>((set) => (
                     user
                 );
                 const data: any = await res.data;
+                console.log(data)
                 set(
                     produce((state: AuthType) => {
                         state.email = data.email;
@@ -141,6 +142,7 @@ const AuthStore = create<AuthType>((set) => (
                 const data: any = await res.data;
                 console.log(data);
                 successSignUp("Successfully signed up");
+                location.assign("/sign-in")
             } catch (error) {
                 errorSignUp((error as any).response?.data?.error.toUpperCase());
             }
