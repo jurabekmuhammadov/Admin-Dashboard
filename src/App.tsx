@@ -48,4 +48,20 @@ const App = () => {
 
 export default App;
 
-// Object { id: "28cafb3c-8870-4a6d-b568-91477ba01cd0", full_name: "Jurabek", email: "jorabekmuhammadov7@gmail.com", phone_number: "+998990990753", created_at: "2024-05-03 18:42:56", updated_at: "2024-05-03 13:42:56", access_token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTQ3OTUwNTgsImlhdCI6MTcxNDc1MTg1OCwicm9sZSI6ImFkbWluIiwic3ViIjoiMjhjYWZiM2MtODg3MC00YTZkLWI1NjgtOTE0NzdiYTAxY2QwIn0.sduP0IS8YjdQU_4CimFgFfjlAjn-HNH3FEIqkxBnwzc", refresh_token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTUwMTEwNTgsImlhdCI6MTcxNDc1MTg1OCwicm9sZSI6ImFkbWluIiwic3ViIjoiMjhjYWZiM2MtODg3MC00YTZkLWI1NjgtOTE0NzdiYTAxY2QwIn0.pbomwQjgpxM7jSUqAJehNOMmOd_dnOlOZ2MyWZWjyxw" }
+// Object {
+//   id: "e5d36b5d-20cd-426b-82bc-c551df2ee3f3",
+//   full_name: "Jurabek Muhammadov",
+//   email: "jorabekmuhammadov17@gmail.com",
+//   phone_number: "+998990990754",
+//   created_at: "2024-05-05 20:43:38",
+//   updated_at: "2024-05-05 15:43:38",
+//   access_token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTQ5Njg0MTQsImlhdCI6MTcxNDkyNTIxNCwicm9sZSI6ImFkbWluIiwic3ViIjoiZTVkMzZiNWQtMjBjZC00MjZiLTgyYmMtYzU1MWRmMmVlM2YzIn0.zq0TsQ4D6T5OGgfpmCy-M_s27tExGeieqRz3OksTHGo",
+//   refresh_token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTUxODQ0MTQsImlhdCI6MTcxNDkyNTIxNCwicm9sZSI6ImFkbWluIiwic3ViIjoiZTVkMzZiNWQtMjBjZC00MjZiLTgyYmMtYzU1MWRmMmVlM2YzIn0.BblBawcMtkF8eHyBdWyMUR111zn1vDXdM_sycJp9-KM"
+// }
+
+// {
+//   "id": "61648fcf-a40d-44a2-b9a5-5bfc5898eca6",
+//   "name": "my service",
+//   "price": 100,
+//   "created_at": "2024-05-05T21:09:04.270165Z"
+// }
