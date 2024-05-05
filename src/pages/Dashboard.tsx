@@ -31,6 +31,7 @@ const Dashboard = () => {
 
     useEffect(() => {
         getServices();
+
     }, []);
 
     return (
@@ -47,9 +48,9 @@ const Dashboard = () => {
                     <p>{service.name}</p>
                     <p>{service.price}</p>
                     <div className="flex gap-2 items-center">
-                        <button className="p-2 bg-red-500" onClick={() => handleDelete(service.id)}>Delete</button>
-                        <button className="p-2 bg-green-500" onClick={() => handleEdit({ id: service.id, name: service.name, price: service.price })}>Edit</button>
-                        <button className="p-2 bg-blue-500">View</button>
+                        <button className="p-2 bg-red-500 rounded-md" onClick={() => handleDelete(service.id)}>Delete</button>
+                        <button className="p-2 bg-green-500 rounded-md" onClick={() => handleEdit({ id: service.id, name: service.name, price: service.price })}>Edit</button>
+                        <button className="p-2 bg-blue-500 rounded-md">View</button>
                     </div>
                 </div>
             ))}
